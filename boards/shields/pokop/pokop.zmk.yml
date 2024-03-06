@@ -1,0 +1,12 @@
+file_format: "1"
+id: pokop
+name: Pocket Operator
+type: shield
+url: https://github.com/H1sen/zmk-config/tree/master
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+siblings:
+  - pokop_left
+  - pokop_right
