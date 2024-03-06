@@ -1,4 +1,4 @@
-#include "cradio.dtsi"
+#include "pokop.dtsi"
 
 &default_transform {
     col-offset = <16>;
