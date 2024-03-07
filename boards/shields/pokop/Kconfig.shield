@@ -1,5 +1,5 @@
 config SHIELD_POKOP_LEFT
-    def_bool $(shields_list_contains,pokop)
+    def_bool $(shields_list_contains,pokop_left)
 
 config SHIELD_POKOP_RIGHT
-    def_bool $(shields_list_contains,pokop)
+    def_bool $(shields_list_contains,pokop_right)
