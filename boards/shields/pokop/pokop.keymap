@@ -14,18 +14,18 @@
 #define UPPER 1
 #define LOWER 2
 
-#define MO_TOG(layer) &mo_tog layer layer
+//#define MO_TOG(layer) &mo_tog layer layer
 
 / {
-    behaviors {
-        mo_tog: behavior_mo_tog {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&tog>;
-        };
-    };
+    //behaviors {
+    //    mo_tog: behavior_mo_tog {
+    //        compatible = "zmk,behavior-hold-tap";
+    //        #binding-cells = <2>;
+    //        flavor = "hold-preferred";
+    //        tapping-term-ms = <200>;
+    //        bindings = <&mo>, <&tog>;
+    //    };
+    //};
     
     keymap {
         compatible = "zmk,keymap";
