@@ -10,56 +10,104 @@
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/outputs.h>
 
+#define BASE 0
+#define UPPER 1
+#define LOWER 2
+
+#define MO_TOG(layer) &mo_tog layer layer
+
 / {
+
+     behaviors {
+        lh_pht: left_positional_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <1 11 21 26>;    // <---[[Key Positions That are Triggered when Held]]
+        };
+    };
+    
+    behaviors {
+        mo_tog: behavior_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&tog>;
+        };
+    };
+    
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |
-// |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |
-// |  Z  |  X  |  C   |  V   |  B   |                   |  N   |  M    |  ,    |  .   |   /   |
-//                                  | SPACE |   | SHIFT |
+// -------------------------------------------------                             -------------------------------------------------
+// | Key: Q    | Key: W | Key: E | Key: R | Key: T |                             | Key: Y | Key: U | Key: I | Key: O | Key: P    |
+// | Pos: 1    | Pos: 2 | Pos: 3 | Pos: 4 | Pos: 5 |                             | Pos: 6 | Pos: 7 | Pos: 8 | Pos: 9 | Pos: 10   |
+// | 2nd: TAB  |                          | 2nd:DEL|                             | 2nd:DEL|                 | 2nd:INS| 2nd: BACK |
+// -------------------------------------------------                             -------------------------------------------------
+// | Key: A    | Key: S | Key: D | Key: F | Key: G |                             | Key: H | Key: J | Key: K | Key: L | Key: ;    |
+// | Pos: 11   | Pos: 12| Pos: 13| Pos: 14| Pos: 15|                             | Pos: 16| Pos: 17| Pos: 18| Pos: 19| Pos: 20   |
+// | 2nd: CAPS |                                                                                                     | 2nd: ENTER|
+// -------------------------------------------------------------------------------------------------------------------------------
+// | Key: Z    | Key: X | Key: C | Key: V | Key: B | Key: SPACE |   | Key: LOWER | Key: N | Key: M | Key: , | Key; . | Key: /    |
+// | Pos: 21   | Pos: 22| Pos: 23| Pos: 24| Pos: 25| Pos: 26    |   | Pos:  27   | Pos: 28| Pos: 29| Pos: 30| Pos: 31| Pos: 32   |
+// | 2nd: Shift| 2nd:CRT|--------| 2nd:ALT|--------| 2nd: ESCAPE|   | 2nd: UPPER |--------| 2nd:ALT|--------|2nd: CRT| 2nd: Shift|
+// ----------------------        ----------        --------------   --------------        ----------        ----------------------
             bindings = <
-&kp Q  &bt BT_CLR  &kp E  &kp R  &kp T                        &kp Y  &kp U  &kp I     &kp O   &kp P   
-&kp A  &bt BT_SEL 0  &kp D  &kp F  &kp G                        &kp H  &kp J  &kp K     &kp L   &kp SEMI
-&kp Z  &out OUT_BLE  &kp C  &kp V  &kp B  &kp SPACE   &kp RSHFT &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH
+
+&mt TAB Q    &kp W        &kp E      &kp R  &mt DEL T                                &mt DEL Y  &kp U        &kp I          &mt INS O   &mt BACKSPACE P
+&mt CAPS A   &kp S        &kp D      &kp F  &kp G                                    &kp H      &kp J        &kp K          &kp L   &mt ENTER SEMI
+&mt LSHFT Z  &mt LCRTL X  &mt LALT C &kp V  &kp B  &mt ESC SPACE &kp &mo_tog UPPER LOWER &kp N      &mt RCRTL M  &mt RALT COMMA &kp DOT &mt RSHFT FSLH
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         lower_layer {
-// ------------------------------------------------------------------------------------------------------------
-// | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   |      |       |       |      |       |       |
-// |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
-// |   `   |  !  |  @  |  #   |  $   |  %   |                   |  ^   |  &    |  *    |  (   |   )   |   ~   |
-// |       |     |     |      |      |      |        |  |       |      |  _    |  +    |  {   |   }   |  "|"  |
-//                     |      |      |      |        |  |       |      |       |       |
+// -------------------------------------------------                             -------------------------------------------------
+// | Key: F1   | Key: F2| Key: F3| Key: F4| Key: F5|                             | Key: F6| Key: F7| Key: F8| Key: F9| Key: F10  |
+// | Pos: 1    | Pos: 2 | Pos: 3 | Pos: 4 | Pos: 5 |                             | Pos: 6 | Pos: 7 | Pos: 8 | Pos: 9 | Pos: 10   |
+// | 2nd: F11  |------------------------------------                             ------------------------------------| 2nd: F12  |
+// -------------                                                                                                     -------------
+// | Key: 1    | Key: 2 | Key: 3 | Key: 4 | Key: 5 |                             | Key: 6 | Key: 7 | Key: 8 | Key: 9 | Key: 0    |
+// | Pos: 11   | Pos: 12| Pos: 13| Pos: 14| Pos: 15|                             | Pos: 16| Pos: 17| Pos: 18| Pos: 19| Pos: 20   |
+// | 2nd: !    | 2nd: @ | 2nd: # | 2nd: $ | 2nd: % |                             | 2nd: ^ | 2nd: & | 2nd: * | 2nd: ( | 2nd: )    |
+// -------------------------------------------------------------------------------------------------------------------------------
+// | Key: -    | Key: _ | Key: = | Key: ~ | Key: " | Key: SPACE |   | Key: Base  | Key: > | Key: < | Key: [ | Key: ] | Key: ENTER|
+// | Pos: 21   | Pos: 22| Pos: 23| Pos: 24| Pos: 25| Pos: 26    |   | Pos:  27   | Pos: 28| Pos: 29| Pos: 30| Pos: 31| Pos: 32   |
+// | 2nd: Shift| 2nd: | | 2nd: + | 2nd: ` | 2nd: ' | 2nd: :     |   | 2nd: UPPER | 2nd: ? | 2nd:   | 2nd: { | 2nd: } | 2nd: Shift|
+// -------------------------------------------------------------------------------------------------------------------------------
             bindings = <
-&bt BT_CLR &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3 &bt BT_SEL 4                 &trans    &trans    &trans          &trans    &trans    &trans
-&kp F1     &kp F2           &kp F3            &kp F4            &kp F5       &kp F6                       &kp F7    &kp F8    &kp F9          &kp F10   &kp F11   &kp F12
-&kp GRAVE  &kp EXCL         &kp AT            &kp HASH          &kp DOLLAR   &kp PRCNT                    &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR  &kp RPAR  &kp TILDE
-&trans     &ext_power EP_ON &ext_power EP_OFF &ext_power EP_TOG &trans       &trans    &trans   &trans    &trans    &kp MINUS &kp KP_PLUS     &kp LBRC  &kp RBRC  &kp PIPE
-                                              &trans            &trans       &trans    &trans   &trans    &trans    &trans    &trans
+&mt F11 F1 &kp F2 &kp F3 &kp F4 &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &mt F10 F12
+&mt EXCL N1 &mt AT N2 &mt HASH N3 &mt DOLLAR N4 &mt PERCENT N5       &mt CARET N6 &mt AMPS N7 &mt STAR N8 &mt LPAR N9 &mt RPAR N0
+&mt LSHFT MINUS &mt PIPE UNDER &mt PLUS EQUAL &mt GRAVE TILDE &mt APOS DQT &mt COLON SPACE    &kp &mo_tog UPPER BASE &mt QMARK GT &kp LT &mt LBRC LBKT &mt RBRC RBKT&mt RSHFT ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         raise_layer {
-// ------------------------------------------------------------------------------------------------------------
-// |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-// |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
-// |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
-// |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
-//                     |      |      |      |        |  |       |      |       |       |
+// -------------------------------------------------                             -------------------------------------------------
+// | Key: BTCLR| Key:BT1| Key:BT2| Key:BT3| Key:BT4|                             | Key:BT5| Key:   | Key:   | Key:   | Key:      |
+// | Pos: 1    | Pos: 2 | Pos: 3 | Pos: 4 | Pos: 5 |                             | Pos: 6 | Pos: 7 | Pos: 8 | Pos: 9 | Pos: 10   |
+// | 2nd:      |------------------------------------                             ------------------------------------| 2nd:      |
+// -------------                                                                                                     -------------
+// | Key:      | Key:   | Key:   | Key:   | Key:   |                             | Key:   | Key:   | Key: UP| Key:   | Key:      |
+// | Pos: 11   | Pos: 12| Pos: 13| Pos: 14| Pos: 15|                             | Pos: 16| Pos: 17| Pos: 18| Pos: 19| Pos: 20   |
+// | 2nd:      | 2nd:   | 2nd:   | 2nd:   | 2nd:   |                             | 2nd:   | 2nd:   | 2nd:   | 2nd:   | 2nd:      |
+// -------------------------------------------------------------------------------------------------------------------------------
+// | Key: SHIFT| Key:   | Key:   | Key:   | Key:   | Key: SPACE |   | Key: BASE  | Key:   | Key: LEFT | Key: DOWN | Key: RIGHT | Key: ENTER|
+// | Pos: 21   | Pos: 22| Pos: 23| Pos: 24| Pos: 25| Pos: 26    |   | Pos:  27   | Pos: 28| Pos: 29   | Pos: 30   | Pos: 31    | Pos: 32   |
+// | 2nd:      | 2nd:   | 2nd:   | 2nd:   | 2nd:   | 2nd:       |   | 2nd: LOWER | 2nd:   | 2nd:      | 2nd:      | 2nd:       | 2nd: Shift|
+// -------------------------------------------------------------------------------------------------------------------------------
             bindings = <
-&trans    &trans &trans &trans  &trans  &trans                       &trans      &trans    &trans    &trans   &trans    &trans
-&kp GRAVE &kp N1 &kp N2 &kp N3  &kp N4  &kp N5                       &kp N6      &kp N7    &kp N8    &kp N9   &kp N0    &trans
-&kp F1    &kp F2 &kp F3 &kp F4  &kp F5  &kp F6                       &trans      &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &trans
-&kp F7    &kp F8 &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp KP_PLUS &kp MINUS &kp EQUAL &kp LBKT &kp RBKT  &kp BSLH
-                        &trans  &trans  &trans    &trans   &trans    &trans      &trans    &trans
+  &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3                               &bt BT_SEL 4 &trans   &trans   &trans    &trans
+  &trans     &trans       &trans       &trans       &trans                                     &trans       &trans   &UP      &trans    &trans
+  &SHIFT     &trans       &trans       &trans       &trans    &SPACE  &kp &mo_tog LOWER BASE   &trans       &kp LEFT &kp DOWN &kp RIGHT &ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
