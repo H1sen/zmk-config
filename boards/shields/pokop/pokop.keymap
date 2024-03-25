@@ -47,7 +47,7 @@
             bindings = <
 &mt TAB Q    &kp W        &kp E  &kp R      &mt DEL T                           &mt DEL Y  &kp U        &kp I          &mt INS O   &mt BACKSPACE P
 &mt CAPS A   &kp S        &kp D  &kp F      &kp G                               &kp H      &kp J        &kp K          &kp L       &mt ENTER SEMI
-&mt LSHFT Z  &mt LCRTL X  &kp C  &mt LALT C &kp B  &mt ESCAPE SPACE  &to LOWER &kp N      &mt RCRTL M  &mt RALT COMMA &kp DOT     &mt RSHFT FSLH
+&mt LSHFT Z  &mt LCRTL X  &kp C  &mt LALT C &kp B  &mt (ESCAPE SPACE)  &to LOWER &kp N      &mt RCRTL M  &mt RALT COMMA &kp DOT     &mt RSHFT FSLH
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
