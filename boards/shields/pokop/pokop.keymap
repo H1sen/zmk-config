@@ -48,7 +48,7 @@
 
 &mt TAB Q    &kp W        &kp E      &kp R  &mt DEL T                                &mt DEL Y  &kp U        &kp I          &mt INS O   &mt BACKSPACE P
 &mt CAPS A   &kp S        &kp D      &kp F  &kp G                                    &kp H      &kp J        &kp K          &kp L   &mt ENTER SEMI
-&mt LSHFT Z  &mt LCRTL X  &mt LALT C &kp V  &kp B  &mt ESC SPACE &mo_tog UPPER LOWER &kp N      &mt RCRTL M  &mt RALT COMMA &kp DOT &mt RSHFT FSLH
+&mt LSHFT Z  &mt LCRTL X  &mt LALT C &kp V  &kp B  &mt ESC SPACE &mo_tog 1 2 &kp N      &mt RCRTL M  &mt RALT COMMA &kp DOT &mt RSHFT FSLH
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -71,7 +71,7 @@
             bindings = <
 &mt F11 F1 &kp F2 &kp F3 &kp F4 &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &mt F10 F12
 &mt EXCL N1 &mt AT N2 &mt HASH N3 &mt DOLLAR N4 &mt PERCENT N5       &mt CARET N6 &mt AMPS N7 &mt STAR N8 &mt LPAR N9 &mt RPAR N0
-&mt LSHFT MINUS &mt PIPE UNDER &mt PLUS EQUAL &mt GRAVE TILDE &mt APOS DQT &mt COLON SPACE    &mo_tog UPPER BASE &mt QMARK GT &kp LT &mt LBRC LBKT &mt RBRC RBKT&mt RSHFT ENTER
+&mt LSHFT MINUS &mt PIPE UNDER &mt PLUS EQUAL &mt GRAVE TILDE &mt APOS DQT &mt COLON SPACE    &mo_tog 1 0 &mt QMARK GT &kp LT &mt LBRC LBKT &mt RBRC RBKT&mt RSHFT ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -94,7 +94,7 @@
             bindings = <
   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3                               &bt BT_SEL 4 &trans   &trans   &trans    &trans
   &trans     &trans       &trans       &trans       &trans                                     &trans       &trans   &kp UP   &trans    &trans
-  &kp SHIFT  &trans       &trans       &trans       &trans  &kp SPACE     &mo_tog LOWER BASE   &trans       &kp LEFT &kp DOWN &kp RIGHT &ENTER
+  &kp SHIFT  &trans       &trans       &trans       &trans  &kp SPACE     &mo_tog 2 0   &trans       &kp LEFT &kp DOWN &kp RIGHT &ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
