@@ -45,9 +45,9 @@
 // | 2nd: Shift| 2nd:CRT|--------| 2nd:ALT|--------| 2nd: ESCAPE|   | 2nd: UPPER |--------| 2nd:ALT|--------|2nd: CRT| 2nd: Shift|
 // ----------------------        ----------        --------------   --------------        ----------        ----------------------
             bindings = <
-&mt TAB Q    &kp W        &kp E      &kp R  &mt DEL T                           &mt DEL Y  &kp U        &kp I          &mt INS O   &mt BACKSPACE P
-&mt CAPS A   &kp S        &kp D      &kp F  &kp G                               &kp H      &kp J        &kp K          &kp L       &mt ENTER SEMI
-&mt LSHFT Z  &mt LCRTL X  &mt LALT C &kp V  &kp B  &kp SPACE          &kp RSHFT &kp N      &mt RCRTL M  &mt RALT COMMA &kp DOT     &mt RSHFT FSLH
+&mt TAB Q    &kp W        &kp E  &kp R      &mt DEL T                           &mt DEL Y  &kp U        &kp I          &mt INS O   &mt BACKSPACE P
+&mt CAPS A   &kp S        &kp D  &kp F      &kp G                               &kp H      &kp J        &kp K          &kp L       &mt ENTER SEMI
+&mt LSHFT Z  &mt LCRTL X  &kp C  &mt LALT C &kp B  &mt ESCAPE SPACE  &to LOWER &kp N      &mt RCRTL M  &mt RALT COMMA &kp DOT     &mt RSHFT FSLH
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -70,7 +70,7 @@
             bindings = <
 &mt F11 F1 &kp F2 &kp F3 &kp F4 &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &mt F10 F12
 &mt EXCL N1 &mt AT N2 &mt HASH N3 &mt DOLLAR N4 &mt PERCENT N5       &mt CARET N6 &mt AMPS N7 &mt STAR N8 &mt LPAR N9 &mt RPAR N0
-&mt LSHFT MINUS &mt PIPE UNDER &mt PLUS EQUAL &mt GRAVE TILDE &mt APOS DQT &mt COLON SPACE    &tog LOWER &mt QMARK GT &kp LT &mt LBRC LBKT &mt RBRC RBKT&mt RSHFT ENTER
+&mt LSHFT MINUS &mt PIPE UNDER &mt PLUS EQUAL &mt GRAVE TILDE &mt APOS DQT &mt COLON SPACE    &to LOWER &mt QMARK GT &kp LT &mt LBRC LBKT &mt RBRC RBKT&mt RSHFT ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -93,7 +93,7 @@
             bindings = <
   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3                               &bt BT_SEL 4 &trans   &trans   &trans    &trans
   &trans     &trans       &trans       &trans       &trans                                     &trans       &trans   &kp UP   &trans    &trans
-  &kp SHIFT  &trans       &trans       &trans       &trans  &kp SPACE              &tog BASE   &trans       &kp LEFT &kp DOWN &kp RIGHT &ENTER
+  &kp SHIFT  &trans       &trans       &trans       &trans  &kp SPACE              &to BASE   &trans       &kp LEFT &kp DOWN &kp RIGHT &ENTER
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
