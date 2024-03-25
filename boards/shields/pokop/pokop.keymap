@@ -14,7 +14,7 @@
 #define UPPER 1
 #define LOWER 2
 
-#define MO_TOG(layer) &mo_tog layer layer
+//#define MO_TOG(layer) &mo_tog layer layer
 
 / {
     behaviors {
