@@ -1,5 +1,5 @@
 #include "pokop.dtsi"
 
 &default_transform {
-    col-offset = <0>;
+    col-offset = <16>;
 };
