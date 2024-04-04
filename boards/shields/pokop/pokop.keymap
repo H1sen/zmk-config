@@ -44,12 +44,18 @@
 // | Pos: 21   | Pos: 22| Pos: 23| Pos: 24| Pos: 25| Pos: 26    |   | Pos:  27   | Pos: 28| Pos: 29| Pos: 30| Pos: 31| Pos: 32   |
 // | 2nd: Shift| 2nd:CRT|--------| 2nd:ALT|--------| 2nd: ESCAPE|   | 2nd: UPPER |--------| 2nd:ALT|--------|2nd: CRT| 2nd: Shift|
 // ----------------------        ----------        --------------   --------------        ----------        ----------------------
-            bindings = < 
-&mt TAB Q    &kp W        &kp E  &kp R      &mt DEL T                                &mt DEL Y  &kp U        &kp I          &mt INS O   &mt BACKSPACE P
-&mt CAPS A   &kp S        &kp D  &kp F      &kp G                                    &kp H      &kp J        &kp K          &kp L       &mt ENTER SEMI
-&mt LSHFT Z  &mt LCTRL X  &kp C  &mt LALT V &kp B  &mt ESC SPACE &mo_tog UPPER LOWER &kp N      &mt RALT M   &kp COMMA   &mt RCTRL DOT  &mt RSHFT FSLH
+        default_layer {
+// ------------------------------------------------------------------------------------------------------------
+// |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |
+// |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |
+// |  Z  |  X  |  C   |  V   |  B   |                   |  N   |  M    |  ,    |  .   |   /   |
+//                                  | SPACE |   | SHIFT |
+            bindings = <
+&kp Q  &kp W  &kp E  &kp R  &kp T                        &kp Y  &kp U  &kp I     &kp O   &kp P   
+&kp A  &kp S  &kp D  &kp F  &kp G                        &kp H  &kp J  &kp K     &kp L   &kp SEMI
+&kp Z  &kp X  &kp C  &kp V  &kp B  &kp SPACE   &kp RSHFT &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH
             >;
-
+            
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
