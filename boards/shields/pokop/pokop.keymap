@@ -16,6 +16,10 @@
 
 //#define MO_TOG(layer) &mo_tog layer layer
 
+    &mt {
+        tapping-term-ms = <500>;
+    };
+
 / {
     behaviors {
         mo_tog: behavior_mo_tog {
