@@ -50,27 +50,25 @@
             bindings = < 
 &mt TAB Q    &kp W        &kp E  &kp R      &mt DEL T                           &mt DEL Y  &kp U        &kp I          &mt INS O   &mt BACKSPACE P
 &mt CAPS A   &kp S        &kp D  &kp F      &kp G                               &kp H      &kp J        &kp K          &kp L       &mt ENTER SEMI
-&mt LSHFT Z  &mt LCTRL X  &kp C  &mt LALT V &kp B  &mt ESC SPACE &mo_tog LOWER UPPER &kp N      &mt RALT M  &kp COMMA &mt RCTRL DOT &mt RSHFT FSLH
+&mt LSHFT Z  &mt LCTRL X  &kp C  &mt LALT V &kp B  &mo_tog SPACE LOWER &mo_tog SPACE UPPER &kp N      &mt RALT M  &kp COMMA &mt RCTRL DOT &mt RSHFT FSLH
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
         lower_layer {
 // -------------------------------------------------                             -------------------------------------------------
-// | Key: F1   | Key: F2| Key: F3| Key: F4| Key: F5|                             | Key: F6| Key: F7| Key: F8| Key: F9| Key: F10  |
+// | Key: 1    | Key: 2 | Key: 3 | Key: 4 | Key: 5 |                             | Key: 6 | Key: 7 | Key: 8 | Key: 9 | Key: 10   |
 // | Pos: 1    | Pos: 2 | Pos: 3 | Pos: 4 | Pos: 5 |                             | Pos: 6 | Pos: 7 | Pos: 8 | Pos: 9 | Pos: 10   |
-// | 2nd: F11  |------------------------------------                             ------------------------------------| 2nd: F12  |
-// -------------                                                                                                     -------------
-// | Key: 1    | Key: 2 | Key: 3 | Key: 4 | Key: 5 |                             | Key: 6 | Key: 7 | Key: 8 | Key: 9 | Key: 0    |
+// -------------------------------------------------                             -------------------------------------------------
+// | Key: !    | Key: @ | Key: # | Key: $ | Key: % |                             | Key: ^ | Key: & | Key: * | Key: ( | Key: )    |
 // | Pos: 11   | Pos: 12| Pos: 13| Pos: 14| Pos: 15|                             | Pos: 16| Pos: 17| Pos: 18| Pos: 19| Pos: 20   |
-// | 2nd: !    | 2nd: @ | 2nd: # | 2nd: $ | 2nd: % |                             | 2nd: ^ | 2nd: & | 2nd: * | 2nd: ( | 2nd: )    |
 // -------------------------------------------------------------------------------------------------------------------------------
 // | Key: -    | Key: _ | Key: = | Key: ~ | Key: " | Key: SPACE |   | Key: Base  | Key: > | Key: < | Key: [ | Key: ] | Key: ENTER|
 // | Pos: 21   | Pos: 22| Pos: 23| Pos: 24| Pos: 25| Pos: 26    |   | Pos:  27   | Pos: 28| Pos: 29| Pos: 30| Pos: 31| Pos: 32   |
 // | 2nd: Shift| 2nd: | | 2nd: + | 2nd: ` | 2nd: ' | 2nd: :     |   | 2nd: UPPER | 2nd: ? | 2nd:   | 2nd: { | 2nd: } | 2nd: Shift|
 // -------------------------------------------------------------------------------------------------------------------------------
             bindings = <
-&mt F11 F1 &kp F2 &kp F3 &kp F4 &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &mt F10 F12
-&mt EXCL N1 &mt AT N2 &mt HASH N3 &mt DOLLAR N4 &mt PERCENT N5       &mt CARET N6 &mt AMPS N7 &mt STAR N8 &mt LPAR N9 &mt RPAR N0
+&kp N1 &kp N2 &kp N3 &kp N4 &kp N5       &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
+&kp EXCL &kp AT &kp HASH &kp DOLLAR &kp PERCENT       &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR
 &mt LSHFT MINUS &mt PIPE UNDER &mt PLUS EQUAL &mt GRAVE TILDE &mt APOS DQT &mt COLON SPACE    &to BASE &mt QMARK GT &kp LT &mt LBRC LBKT &mt RBRC RBKT&mt RSHFT ENTER
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -91,8 +89,8 @@
 // -------------------------------------------------------------------------------------------------------------------------------
             bindings = <
   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3                               &bt BT_SEL 4 &out OUT_BLE  &trans   &trans    &trans
-  &trans     &trans       &trans       &trans       &trans                                     &trans       &trans   &kp UP   &trans    &trans
-  &kp LSHFT &trans       &trans       &trans       &trans  &kp SPACE              &to BASE   &trans       &kp LEFT &kp DOWN &kp RIGHT &mt RSHFT ENTER
+  &mt F11 F1 &kp F2 &kp F3 &kp F4 &kp F5       &kp F6 &kp F7 &kp F8 &kp F9 &mt F10 F12
+  &kp LSHFT &kp ESC     &trans       &trans       &trans  &kp SPACE              &to BASE   &trans       &kp LEFT &kp DOWN &kp RIGHT &mt RSHFT ENTER
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
