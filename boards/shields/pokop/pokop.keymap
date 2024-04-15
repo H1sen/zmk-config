@@ -27,7 +27,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <500>;
-            bindings = <&mo>, <&tog>;
+            bindings = <&mo>, <&kp>;
         };
     };
     
@@ -50,7 +50,7 @@
             bindings = < 
 &mt TAB Q    &kp W        &kp E  &kp R      &mt DEL T                           &mt DEL Y  &kp U        &kp I          &mt INS O   &mt BACKSPACE P
 &mt CAPS A   &kp S        &kp D  &kp F      &kp G                               &kp H      &kp J        &kp K          &kp L       &mt ENTER SEMI
-&mt LSHFT Z  &mt LCTRL X  &kp C  &mt LALT V &kp B  &mo_tog SPACE LOWER &mo_tog SPACE UPPER &kp N      &mt RALT M  &kp COMMA &mt RCTRL DOT &mt RSHFT FSLH
+&mt LSHFT Z  &mt LCTRL X  &kp C  &mt LALT V &kp B  &mo_tog LOWER SPACE  &mo_tog UPPER SPACE &kp N      &mt RALT M  &kp COMMA &mt RCTRL DOT &mt RSHFT FSLH
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
