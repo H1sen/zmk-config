@@ -30,7 +30,7 @@
             bindings = <&mo>, <&kp>;
         };
     };
-    
+     
      keymap {
         compatible = "zmk,keymap";
         default_layer {
@@ -48,9 +48,9 @@
 // | 2nd: Shift| 2nd:CRT|--------| 2nd:ALT|--------| 2nd: ESCAPE|   | 2nd: UPPER |--------| 2nd:ALT|--------|2nd: CRT| 2nd: Shift|
 // ----------------------        ----------        --------------   --------------        ----------        ----------------------
             bindings = < 
-&mt TAB Q    &kp W        &kp E  &kp R      &mt DEL T                           &mt DEL Y  &kp U        &kp I          &mt INS O   &mt BACKSPACE P
+&mt TAB Q    &kp W        &kp E  &kp R      &mt DEL T                           &mt DEL Y  &kp U        &kp I          &mt INS O   &kp P
 &mt CAPS A   &kp S        &kp D  &kp F      &kp G                               &kp H      &kp J        &kp K          &kp L       &mt ENTER SEMI
-&mt LSHFT Z  &mt LCTRL X  &kp C  &mt LALT V &kp B  &mo_tog LOWER SPACE  &mo_tog UPPER SPACE &kp N      &mt RALT M  &kp COMMA &mt RCTRL DOT &mt RSHFT FSLH
+&mt LSHFT Z  &mt LCTRL X  &kp C  &mt LALT V &kp B  &kp BACKSPACE  &mo_tog UPPER SPACE &kp N      &mt RALT M  &kp COMMA &mt RCTRL DOT &mt RSHFT FSLH
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
@@ -62,14 +62,14 @@
 // | Key: !    | Key: @ | Key: # | Key: $ | Key: % |                             | Key: ^ | Key: & | Key: * | Key: ( | Key: )    |
 // | Pos: 11   | Pos: 12| Pos: 13| Pos: 14| Pos: 15|                             | Pos: 16| Pos: 17| Pos: 18| Pos: 19| Pos: 20   |
 // -------------------------------------------------------------------------------------------------------------------------------
-// | Key: -    | Key: _ | Key: = | Key: ~ | Key: " | Key: SPACE |   | Key: Base  | Key: > | Key: < | Key: [ | Key: ] | Key: ENTER|
+// | Key: -    | Key: _ | Key: = | Key: ~ | Key: " | Key: :     |   | Key: Base  | Key: > | Key: < | Key: [ | Key: ] | Key: ENTER|
 // | Pos: 21   | Pos: 22| Pos: 23| Pos: 24| Pos: 25| Pos: 26    |   | Pos:  27   | Pos: 28| Pos: 29| Pos: 30| Pos: 31| Pos: 32   |
-// | 2nd: Shift| 2nd: | | 2nd: + | 2nd: ` | 2nd: ' | 2nd: :     |   | 2nd: UPPER | 2nd: ? | 2nd:   | 2nd: { | 2nd: } | 2nd: Shift|
+// | 2nd: Shift| 2nd: | | 2nd: + | 2nd: ` | 2nd: ' | 2nd: LOWER |   | 2nd: UPPER | 2nd: ? | 2nd:   | 2nd: { | 2nd: } | 2nd: Shift|
 // -------------------------------------------------------------------------------------------------------------------------------
             bindings = <
 &kp N1 &kp N2 &kp N3 &kp N4 &kp N5       &kp N6 &kp N7 &kp N8 &kp N9 &kp N0
 &kp EXCL &kp AT &kp HASH &kp DOLLAR &kp PERCENT       &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR
-&mt LSHFT MINUS &mt PIPE UNDER &mt PLUS EQUAL &mt GRAVE TILDE &mt APOS DQT &mt COLON SPACE    &to BASE &mt QMARK GT &kp LT &mt LBRC LBKT &mt RBRC RBKT&mt RSHFT ENTER
+&mt LSHFT MINUS &mt PIPE UNDER &mt PLUS EQUAL &mt GRAVE TILDE &mt APOS DQT &mt LOWER COLON    &to BASE &mt QMARK GT &kp LT &mt LBRC LBKT &mt RBRC RBKT&mt RSHFT ENTER
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
